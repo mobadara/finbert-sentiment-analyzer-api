@@ -37,7 +37,7 @@ The core of this application is a fine-tuned NLP model.
 
 copy the command below and run it in your favourite terminal.
 ```bash
-git clone [https://github.com/mobadara/finbert-sentiment-analyzer-api.git](https://github.com/mobadara/finbert-sentiment-analyzer-api.git) &&
+git clone https://github.com/mobadara/finbert-sentiment-analyzer-api.git &&
 cd finbert-sentiment-analyzer-api.git
 ```
 
@@ -69,6 +69,7 @@ uvicorn app.main:app --reload
 
 ## 👨‍💻 Author:
 **Muyiwa J. Obadara**
+
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/obadara-m)
 [![X / Twitter](https://img.shields.io/badge/X-%23000000.svg?style=for-the-badge&logo=X&logoColor=white)](https://twitter.com/m_obadara)
 [![Portfolio](https://img.shields.io/badge/Portfolio-Navy_Blue?style=for-the-badge&logo=google-chrome&logoColor=white&color=navy)](https://portfolio-frontend-livid.vercel.app)
