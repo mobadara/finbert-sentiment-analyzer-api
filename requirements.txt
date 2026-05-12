@@ -1,4 +1,11 @@
-fastapi
-uvicorn
-transformers
-torch
+fastapi==0.110.0
+uvicorn==0.27.1
+pydantic==2.6.3
+transformers==4.38.1
+torch==2.2.1
+numpy==1.26.4
+pandas==2.2.1
+matplotlib==3.8.3
+seaborn==0.13.2
+sqlalchemy==2.0.28
+psycopg2-binary==2.9.9
