@@ -1,5 +1,4 @@
 ---
----
 title: FinBERT Sentiment Analyzer API
 emoji: 📊
 colorFrom: blue
