@@ -1,0 +1,33 @@
+name: Sync to Hugging Face Hub
+
+# This tells GitHub to run the sync every time you push to the main branch.
+on:
+  push:
+    branches: [main]
+  # Allows you to trigger the sync manually from the GitHub Actions tab.
+  workflow_dispatch:
+
+jobs:
+  sync-to-hub:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Checkout the code from your GitHub repo
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          lfs: true # Crucial for syncing large files like model.safetensors
+
+      # Step 2: Push the code to Hugging Face
+      - uses: huggingface/hub-sync@v0.1.0
+        with:
+          # Automatically grabs your GitHub repo
+          github_repo_id: ${{ github.repository }} 
+          
+          # Replace with your target Hugging Face repository
+          huggingface_repo_id: mobadara/distilbert-base-uncased-finetuned-emotions 
+          
+          # Pulls the secret you created in Step 1
+          hf_token: ${{ secrets.HF_TOKEN }} 
+          
+          # Specifies what type of repo you are syncing to
+          repo_type: model
