@@ -1,11 +1,11 @@
 ---
+---
 title: FinBERT Sentiment Analyzer API
 emoji: 📊
-colorFrom: navy # Your favorite color!
+colorFrom: navy
 colorTo: white
 sdk: docker
 pinned: false
-app_port: 7860
 ---
 
 # 📈 **FinBERT: Real-Time Financial Sentiment Analysis**
@@ -48,7 +48,7 @@ The core of this application is a fine-tuned NLP model.
 
 copy the command below and run it in your favourite terminal.
 ```bash
-git clone https://github.com/mobadara/finbert-sentiment-analyzer-api.git &&
+git clone https://github.com/mobadara/finbert-sentiment-analyzer-api &&
 cd finbert-sentiment-analyzer-api.git
 ```
 
