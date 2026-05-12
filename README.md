@@ -2,8 +2,8 @@
 ---
 title: FinBERT Sentiment Analyzer API
 emoji: 📊
-colorFrom: navy
-colorTo: white
+colorFrom: blue
+colorTo: gray
 sdk: docker
 pinned: false
 ---
