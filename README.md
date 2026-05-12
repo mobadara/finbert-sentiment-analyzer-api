@@ -1,4 +1,14 @@
-# 📈 FinBERT: Real-Time Financial Sentiment Analysis
+---
+title: FinBERT Sentiment Analyzer API
+emoji: 📊
+colorFrom: navy # Your favorite color!
+colorTo: white
+sdk: docker
+pinned: false
+app_port: 7860
+---
+
+# 📈 **FinBERT: Real-Time Financial Sentiment Analysis**
 
 Machine Learning Pipeline, which analyses news headlines about finance and forecasts sentiments (Bullish, Bearish, and Neutral).
 
