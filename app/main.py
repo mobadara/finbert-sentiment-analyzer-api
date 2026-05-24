@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Depends, HttpException
+from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
 from datetime import datetime, timezone
 
