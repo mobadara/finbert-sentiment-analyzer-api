@@ -16,9 +16,10 @@ app = FastAPI(
 @app.post('/predict', response_model=SentimentResponse)
 def predict_sentiment(request: SentimentRequest, db: Session = Depends(get_db)):
   try:
-    prediction_result = ml_model.predict(request.text)
+    request_data = request.model_dump() 
+    prediction_result = ml_model.predict(request_data["text"])
     log_entry = InferenceLog(
-      input_text=request.text,
+      input_text=request_data['text'],
       sentiment_prediction=prediction_result['sentiment'],
       confidence_score=prediction_result['confidence'],
       timestamp=datetime.now(timezone.utc)
@@ -29,15 +30,15 @@ def predict_sentiment(request: SentimentRequest, db: Session = Depends(get_db)):
     db.close()
     
     return SentimentResponse(
-      input_text=request.text,
+      input_text=request_data["text"],
       sentiment=prediction_result['sentiment'],
       confidence=prediction_result['confidence'],
       timestamp=log_entry.timestamp
     )
   except Exception as e:
-    raise HttpException(status_code=500, detail=str(e))
-  
-  
+    raise HTTPException(status_code=500, detail=str(e))
+
+
 @app.get('/logs')
 def get_inference_logs(db: Session = Depends(get_db)):
   logs = db.query(InferenceLog).order_by(InferenceLog.timestamp.desc()).all()
