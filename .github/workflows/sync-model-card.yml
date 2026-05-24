@@ -1,0 +1,36 @@
+name: Sync Model Card to Hugging Face
+
+on:
+  # Triggers the workflow on push events to the main branch
+  push:
+    branches:
+      - main
+    # Only run this workflow if the Model Card itself is changed
+    paths:
+      - 'models/README.md'
+  
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  sync-to-hub:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install Hugging Face Hub CLI
+        run: pip install huggingface_hub
+
+      - name: Upload Model Card to Hugging Face
+        env:
+          # Pulls the secret token securely from GitHub Secrets
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          huggingface-cli upload mobadara/finbert-finetuned models/README.md README.md --repo-type model
