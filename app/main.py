@@ -38,16 +38,17 @@ def predict_sentiment(request: SentimentRequest, db: Session = Depends(get_db)):
   try:
     request_data = request.model_dump() 
     prediction_result = ml_model.predict(request_data["text"])
+    current_time = datetime.now(timezone.utc)
     log_entry = InferenceLog(
       input_text=request_data['text'],
       sentiment_prediction=prediction_result['sentiment'],
       confidence_score=prediction_result['confidence'],
-      timestamp=datetime.now(timezone.utc)
+      timestamp=current_time
     )
     
     db.add(log_entry)
     db.commit()
-    db.close()
+    db.refresh(log_entry)  # Refresh to get the generated ID and timestamp from the database
     
     return SentimentResponse(
       input_text=request_data["text"],
@@ -56,6 +57,7 @@ def predict_sentiment(request: SentimentRequest, db: Session = Depends(get_db)):
       timestamp=log_entry.timestamp
     )
   except Exception as e:
+    db.rollback()  # Rollback in case of any error during database operations
     raise HTTPException(status_code=500, detail=str(e))
 
 
