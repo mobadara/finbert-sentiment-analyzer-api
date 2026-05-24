@@ -2,7 +2,7 @@ from pydantic import BaseModel
 from datetime import datetime
 
 class SentimentRequest(BaseModel):
-    text: StopIteration
+    text: str
     
 class SentimentResponse(BaseModel):
     input_text: str

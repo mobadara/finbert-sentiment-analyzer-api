@@ -1,16 +1,34 @@
 from fastapi import FastAPI, Depends, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 from datetime import datetime, timezone
 
-from .database import get_db
+from .database import get_db, Base, engine
 from .models import InferenceLog
 from .schemas import SentimentRequest, SentimentResponse
 from . import ml_model
+
+Base.metadata.create_all(bind=ml_model.engine)  # Ensure tables are created at startup
 
 app = FastAPI(
   title='FinBERT Sentiment Analyzer API',
   description='An API for analyzing the sentiment of financial news articles using FinBERT.',
   version='1.0.0'
+)
+
+
+origins = [
+    'http://localhost:3000',                  
+    'https://portfolio-frontend-livid.vercel.app',
+    '*'                                       
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows all standard methods (GET, POST, PUT, DELETE, etc.)
+    allow_headers=["*"],  # Allows all standard headers
 )
 
 @app.post('/predict', response_model=SentimentResponse)
