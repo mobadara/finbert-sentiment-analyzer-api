@@ -1,3 +1,19 @@
+---
+language: 
+- en
+license: apache-2.0
+tags:
+- text-classification
+- finance
+- sentiment-analysis
+datasets:
+- financial_phrasebank
+metrics:
+- f1
+- accuracy
+base_model: ProsusAI/finbert
+pipeline_tag: text-classification
+---
 
 # FinBERT Sentiment Analyzer (Fine-Tuned)
 
