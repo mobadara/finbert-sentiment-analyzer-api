@@ -13,7 +13,9 @@ Base.metadata.create_all(bind=engine)  # Ensure tables are created at startup
 app = FastAPI(
   title='FinBERT Sentiment Analyzer API',
   description='An API for analyzing the sentiment of financial news articles using FinBERT.',
-  version='1.0.0'
+  version='1.0.0',
+  docs_url='/docs',
+  redoc_url='/'
 )
 
 
