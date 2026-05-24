@@ -48,7 +48,6 @@ def predict_sentiment(request: SentimentRequest, db: Session = Depends(get_db)):
     
     db.add(log_entry)
     db.commit()
-    db.refresh(log_entry)  # Refresh to get the generated ID and timestamp from the database
     
     return SentimentResponse(
       input_text=request_data["text"],
