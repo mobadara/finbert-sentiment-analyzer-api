@@ -8,7 +8,7 @@ from .models import InferenceLog
 from .schemas import SentimentRequest, SentimentResponse
 from . import ml_model
 
-Base.metadata.create_all(bind=ml_model.engine)  # Ensure tables are created at startup
+Base.metadata.create_all(bind=engine)  # Ensure tables are created at startup
 
 app = FastAPI(
   title='FinBERT Sentiment Analyzer API',
