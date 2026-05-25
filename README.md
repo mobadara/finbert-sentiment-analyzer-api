@@ -18,7 +18,7 @@ The project will train a BERT-based model with PyTorch, implement API prediction
 * **Frontend Code:** [Github](https://github.com/mobadara/portfolio-frontend/blob/main/src/pages/projects/FinBERT.jsx)
 * **Project Blog Post:** [Read the full write-up on Medium/Dev.to]
 * **Video Walkthrough:** [Watch the explanation on YouTube]
-* **Model Weights (Optional):** [Link to your Hugging Face model hub if uploaded]
+* **Model Weights (Optional):** Hugging Face [mobadara/finbert-finetuned](https://huggingface.co/mobadara/finbert-finetuned)
 
 ---
 
