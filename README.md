@@ -16,8 +16,7 @@ The project will train a BERT-based model with PyTorch, implement API prediction
 ### 🔗 Project Links
 * **Live Application:** [Link](https://portfolio-frontend-livid.vercel.app/projects/sentiment-analysis-with-bert)
 * **Frontend Code:** [Github](https://github.com/mobadara/portfolio-frontend/blob/main/src/pages/projects/FinBERT.jsx)
-* **Project Blog Post:** [Read the full write-up on Medium/Dev.to]
-* **Video Walkthrough:** [Watch the explanation on YouTube]
+* **Project Blog Post:** [Link](https://mobadara.medium.com/75740300902b?source=friends_link&sk=e145c95c5c6b232c3b3ba27eaf0b41fb)
 * **Model Weights (Optional):** Hugging Face [mobadara/finbert-finetuned](https://huggingface.co/mobadara/finbert-finetuned)
 
 ---
